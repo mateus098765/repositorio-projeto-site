@@ -53,4 +53,65 @@
             startSlide();
         });
 
+        dots.forEach((dot) => {
+            dot.addEventListener("click", function(e) {
+                const index = parseInt(e.target.getAttribute("data-index"));
+                showSlide(index);
+                stopSlide();
+                startSlide();
+            });
+        });
+
+        showSlide(slideAtual);
+        startSlide();
+
+        //Validação campos formulário
+        const contatoForm = document.getElementById("contatoForm");
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const mensagem = document.getElementById("mensagem");
+
+        contatoForm.addEventListener("submit",(event) => {
+            event.preventDefault();
+
+            let isValid = true;
+            //validação do campo nome (min 3 caract.)
+            if (name.value.trim().length() < 3) {
+                showError(name, "O nome deve ter no mínimo 3 caracteres");
+                isValid = false;
+            }
+
+            //Validar campo email
+            if(!isEmailValid(email.value.trim())) {
+                showError(email, "Insira um email válido");
+                isValid = false;
+            }
+
+            //Validação do campo mensagem
+            if (mensagem.value.trim().length() < 10) {
+                showError(mensagem, "No minimo 10 caracteres")
+                isValid = false;
+            }
+
+            if (isValid) {
+                clearError();
+                alert("Mensagem enviada com sucesso");
+                contatoForm.reset();
+            }
+
+            function isEmailValid(email) {
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                return emailRegex.test(email);
+            }
+
+            function showError(inputElement, mensagem) {
+                const formGroup = inputElement.parentElement;
+                clearFieldError(inputElement);
+                const erroMensagem = document.createElement("small");
+                erroMensagem.className = "error-text";
+                erroMensagem.innerText = mensagem;
+                formGroup.appendChild(erroMensagem);
+
+            }
+        });
     }); //Fechamento do evento carregar página
