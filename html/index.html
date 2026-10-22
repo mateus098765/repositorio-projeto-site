@@ -118,36 +118,57 @@
     <section id="contato" class="section">
         <div class="container">
             <h2>Mais informações sobre o curso</h2>
-            <form class="contatoForm" class="contact-form">
+    
+            <form id="contatoForm" class="contact-form">
                 <div class="form-group">
-                    <label form="nome">Nome completo</label>
-                    <input type="text" id="nome" placeholder="Informe seu nome completo">
+                    <label for="nome">Nome completo</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Informe seu nome completo"
+                    >
                 </div>
+    
                 <div class="form-group">
-                    <label form="email">Email</label>
-                    <input type="email" placeholder="seuemail@exemplo.com" id="email">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="seuemail@exemplo.com"
+                    >
                 </div>
+    
                 <div class="form-group">
-                    <label form="mensagem">Mensagem</label>
-                    <textarea id="mensagem" rows="5" placeholder="Como podemos ajudar?"></textarea>
+                    <label for="mensagem">Mensagem</label>
+                    <textarea
+                        id="mensagem"
+                        rows="5"
+                        placeholder="Como podemos ajudar?"
+                    ></textarea>
                 </div>
-                <button type="submit" class="btn-primary">Enviar</button>
+    
+                <button type="submit" class="btn-primary">
+                    Enviar
+                </button>
             </form>
         </div>
     </section>
-    <section>
-        <div class="footer">
-            <div class="container grid-footer">
-                <div class="footer-col">
-                    <h3>TMSI</h3>
-                    <p>Curso Técnico em Manutenção e Suporte em Informática</p>
-                </div>
-            </div> <!--fecha div grid-footer-->
-            <div class="footer-bottom">
-                <p>&copy; 2024 TMSI. Todos os direitos reservados.</p>
+    
+    <footer class="footer">
+        <div class="container grid-footer">
+            <div class="footer-col">
+                <h3>TMSI</h3>
+                <p>Curso Técnico em Manutenção e Suporte em Informática</p>
             </div>
+        </div> <!--fecha div grid-footer-->
+        <div class="footer-bottom">
+            <p>&copy; 2024 TMSI. Todos os direitos reservados.</p>
         </div>
-    </section>
+    </footer>
+    <div id="toast" class="toast">
+        <span class="toast-icon">☑️</span>
+        <span id="toastMensagem">Mensagem enviada com sucesso</span>
+    </div>
 </body>
 
 <script type="text/javascript" src="../js/script.js"></script>
