@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Remover a borda vermelha nos inputs ao digitar
-    [name, email, mensagem].forEach((inputElement) => {
+    [nome, email, mensagem].forEach((inputElement) => {
         inputElement.addEventListener("input", function () {
             clearFieldError(inputElement);
         });
